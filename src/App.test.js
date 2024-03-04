@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { screen, render } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('App', () => {
+    it('Renders without errors', () => {
+        render(<App />)
+        const app = screen.getByTestId('App')
+        expect(app).toBeInTheDocument()
+    })
+    // Integration test - need to move to seperate file
+    it('Renders the Header Component', () => {
+        render(<App />)
+        const header = screen.getByTestId('header')
+        expect(header).toBeInTheDocument()
+    })
+})
