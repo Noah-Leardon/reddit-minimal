@@ -6,21 +6,17 @@ function Card() {
             <div data-testid='votes'>
                 <p></p>
             </div>
-            <div className="title">
+            <div data-testid='content' className="content">
                 <h1></h1>
-            </div>
-            <div data-testid='body'>
                 <p></p>
             </div>
-            <div data-testid='author'>
+            <div data-testid='card-bottom' className="card-bottom">
                 <p></p>
-            </div>
-            <div data-testid='time'>
                 <p></p>
-            </div>
-            <div className="comments">
-                <img />
-                <a href=""></a>
+                <div>
+                    <img />
+                    <a href=""></a>
+                </div>
             </div>
         </div>
     )
