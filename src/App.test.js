@@ -13,4 +13,9 @@ describe('App', () => {
         const header = screen.getByTestId('header')
         expect(header).toBeInTheDocument()
     })
+    it('Renders the SearchBar component', () => {
+        render(<App />)
+        const searchBar = screen.getByTestId('searchbar')
+        expect(searchBar).toBeInTheDocument()
+    })
 })
