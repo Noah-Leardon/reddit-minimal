@@ -4,7 +4,7 @@ function SearchBar() {
     return (
         <div data-testid='searchbar'>
             <input placeholder="Search"></input>
-            <button><img></img></button>
+            <button><img alt=""></img></button>
         </div>
     )
 }
