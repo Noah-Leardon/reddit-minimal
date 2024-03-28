@@ -18,7 +18,16 @@
     font-weight: 400;
 }
 
-.searchbar img {
-    width: 10px;
-    height: 10px;
+img {
+    max-width: none;
+}
+
+.search-icon, .comment-bubble {
+    width: 15px;
+    height: 15px;
+}
+
+.post-video {
+    max-width: 500px;
+    max-height: 800px;
 }
