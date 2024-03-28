@@ -24,7 +24,7 @@ function Card({
     function loadVideo(media) {
         let urlToUse;
         if (media && media.reddit_video) {
-            urlToUse = media.reddit_video.scrubber_media_url;
+            urlToUse = media.reddit_video.fallback_url;
             return <video className="post-video" controls src={urlToUse}></video>
         } else {
             return;
