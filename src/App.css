@@ -17,3 +17,8 @@
 .header h1 {
     font-weight: 400;
 }
+
+.searchbar img {
+    width: 10px;
+    height: 10px;
+}
