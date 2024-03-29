@@ -39,7 +39,7 @@ function Card({
             return <img className="thumbnail" src={thumbnail} />
         }*/ else if (preview) {
             console.log(`PREVIEW ${author}, ${preview.images[0].source.url}`)
-            return <img className="thumbnail" src={preview.images[0].source.url} />
+            return <img alt="content" className="thumbnail" src={preview.images[0].source.url} />
         } else {
             return null
         }

@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { UseSelector, useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../../Slices/PostSlice/postSlice";
 import Card from "../Card/Card";
-import { response } from "./dummyresponse";
 
 function SearchBar() {
     const [searchTerm, setSearchTerm] = useState('')
     const dispatch = useDispatch()
     const posts = useSelector((state) => state.post.posts)
-    const callCount = useSelector((state) => state.callCount)
+    //const callCount = useSelector((state) => state.callCount)
 
     function handleClick() {
         dispatch(fetchPosts(searchTerm))
