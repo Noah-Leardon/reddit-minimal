@@ -1,7 +1,7 @@
 
 export async function fetchData(searchPhrase) {
   try {
-    const response = await fetch(`https://www.reddit.com/search.json?q=${searchPhrase}`);
+    const response = await fetch(`https://www.reddit.com/search.json?q=${searchPhrase}&raw_json=1`);
     if (!response.ok) {
       throw new Error('Failed to fetch Reddit data');
     }
