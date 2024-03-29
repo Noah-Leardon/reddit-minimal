@@ -1,4 +1,4 @@
-const response = {
+export const response = {
     type: 'posts/fetchPosts/fulfilled',
     payload: {
       kind: 'Listing',

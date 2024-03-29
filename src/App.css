@@ -5,12 +5,31 @@
     padding: 0;
 }
 
+html {
+    background-color: gray;
+}
+
+.App {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.body {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
 .header {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     height: 60px;
+    background-color: white;
     border-bottom: solid black;
 }
 
@@ -18,8 +37,32 @@
     font-weight: 400;
 }
 
-img {
-    max-width: none;
+.searchbar {
+    margin: 20px;
+}
+
+.searchbar #search-term {
+    padding: 10px;
+    border-radius: 10px;
+    border: solid black;
+}
+
+.searchbar .search-icon {
+    padding: 0px;
+}
+
+.searchbar #search-button {
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    right: 34px;
+    top: 1.7px;
+}
+
+.searchbar #search-button:hover {
+    cursor: pointer;
 }
 
 .search-icon, .comment-bubble {
@@ -27,7 +70,68 @@ img {
     height: 15px;
 }
 
-.post-video {
+ul {
+    list-style: none;
+}
+
+li {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    width: 700px;
+    display: flex;
+    flex-flow: row;
+    border: solid black 4px;
+    overflow: scroll;
+}
+
+li .votes {
+    font-weight: 600;
+    font-size: larger;
+}
+
+li h1 {
+    padding: 5px;
+}
+
+.card .thumbnail, .post-video {
     max-width: 500px;
-    max-height: 800px;
+    max-height: 500px;
+}
+
+.card {
+    width: 100%;
+}
+
+.card .content {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.card .card-bottom {
+    margin: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.card .comments {
+    display: flex;
+}
+
+.card .comments img {
+    position: relative;
+    left: 4px;
+    top: 2px;
+}
+
+.card .comments:hover {
+    cursor: pointer;
+    transition: all ease 0.5s;
+    text-decoration: underline;
 }

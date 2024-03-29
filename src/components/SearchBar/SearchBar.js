@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { UseSelector, useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../../Slices/PostSlice/postSlice";
 import Card from "../Card/Card";
-
+import { response } from "./dummyresponse";
 
 function SearchBar() {
     const [searchTerm, setSearchTerm] = useState('')
@@ -16,9 +16,11 @@ function SearchBar() {
     }
 
     return (
-        <div data-testid='searchbar' className="searchbar">
-            <input id="search-term" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
-            <button onClick={() => handleClick()}><img alt="Search Icon" className="search-icon" src="/search.png"/></button>
+        <div data-testid='searchbar' className="body">
+            <div className="searchbar">
+                <input id="search-term" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+                <button id="search-button" onClick={() => handleClick()}><img alt="Search Icon" className="search-icon" src="/search.png"/></button>
+            </div>
             <ul className="posts">
                 {posts.map((post) => {
                     return <li key={post.data.id}><Card 
