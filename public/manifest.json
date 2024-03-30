@@ -1,21 +1,21 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reddit Minimal",
+  "name": "Reddit Minimal",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "30x30 60x60 90x90",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "icons8-reddit-60.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "60x60"
     },
     {
-      "src": "logo512.png",
+      "src": "icons8-reddit-90.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "90x90"
     }
   ],
   "start_url": ".",

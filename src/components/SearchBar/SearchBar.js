@@ -4,7 +4,7 @@ import { fetchPosts } from "../../Slices/PostSlice/postSlice";
 import Card from "../Card/Card";
 
 function SearchBar() {
-    const [searchTerm, setSearchTerm] = useState('Popular')
+    const [searchTerm, setSearchTerm] = useState('Programming')
     const dispatch = useDispatch()
     const posts = useSelector((state) => state.post.posts)
     const isLoading = useSelector((state) => state.post.isLoading)
