@@ -9,17 +9,18 @@ function SearchBar() {
     const posts = useSelector((state) => state.post.posts)
     //const callCount = useSelector((state) => state.callCount)
 
-    function handleClick() {
+    function handleClick(e) {
+        e.preventDefault()
         dispatch(fetchPosts(searchTerm))
         setSearchTerm("")
     }
 
     return (
         <div data-testid='searchbar' className="body">
-            <div className="searchbar">
+            <form onSubmit={(e) => handleClick(e)} className="searchbar">
                 <input id="search-term" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
-                <button id="search-button" onClick={() => handleClick()}><img alt="Search Icon" className="search-icon" src="/search.png"/></button>
-            </div>
+                <button type="submit" id="search-button"><img alt="Search Icon" className="search-icon" src="/search.png"/></button>
+            </form>
             <ul className="posts">
                 {posts.map((post) => {
                     return <li key={post.data.id}><Card 

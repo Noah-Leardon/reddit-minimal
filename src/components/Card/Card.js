@@ -34,10 +34,7 @@ function Card({
     function chooseDisplayMedia() {
         if (isVideo) {
             return loadVideo(media)
-        } /*else if (thumbnail !== 'self' && thumbnail !== 'spoiler' && thumbnail !== 'default' && thumbnail !== 'image') {
-            console.log(`THUMBNAIL ${author}, ${thumbnail}`)
-            return <img className="thumbnail" src={thumbnail} />
-        }*/ else if (preview) {
+        } else if (preview) {
             console.log(`PREVIEW ${author}, ${preview.images[0].source.url}`)
             return <img alt="content" className="thumbnail" src={preview.images[0].source.url} />
         } else {
@@ -48,12 +45,13 @@ function Card({
     return (
         <div data-testid='card' className="card">
             <div data-testid='votes' className="votes">
-                <p>{formatNumber(votes)}</p>
+                <p><img alt="heart" className="heart" src="/icons8-heart-90.png"/>{formatNumber(votes)}</p>
             </div>
             <div className="body-content">
-                <h1>{title}</h1>
+                <h1 className="title">{title}</h1>
                 <div data-testid='content' className="content">
-                    {postHint !== 'self' ? chooseDisplayMedia() : <p>{body}</p>}
+                    {chooseDisplayMedia()}
+                    <p className="selftext">{body}</p>
                 </div>
                 <div data-testid='card-bottom' className="card-bottom">
                     <p>By: {author}</p>
