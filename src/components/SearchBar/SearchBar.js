@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../../Slices/PostSlice/postSlice";
 import Card from "../Card/Card";
 
 function SearchBar() {
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState('Popular')
     const dispatch = useDispatch()
     const posts = useSelector((state) => state.post.posts)
+    const isLoading = useSelector((state) => state.post.isLoading)
     //const callCount = useSelector((state) => state.callCount)
+
+    useEffect(() => {
+        dispatch(fetchPosts(searchTerm))
+    }, [])
 
     function handleClick(e) {
         e.preventDefault()
         dispatch(fetchPosts(searchTerm))
-        setSearchTerm("")
+        setSearchTerm('')
     }
 
     return (
@@ -21,7 +26,7 @@ function SearchBar() {
                 <input id="search-term" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
                 <button type="submit" id="search-button"><img alt="Search Icon" className="search-icon" src="/search.png"/></button>
             </form>
-            <ul className="posts">
+            {!isLoading ? <ul className="posts">
                 {posts.map((post) => {
                     return <li key={post.data.id}><Card 
                         title={post.data.title} 
@@ -37,7 +42,7 @@ function SearchBar() {
                         postHint={post.data.post_hint}
                         /></li>
                 })}
-            </ul>
+            </ul> : <h1 className="loading">Loading...</h1>}
         </div>
     )
 }
