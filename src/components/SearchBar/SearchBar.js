@@ -12,7 +12,7 @@ function SearchBar() {
 
     useEffect(() => {
         dispatch(fetchPosts(searchTerm))
-    }, [])
+    })
 
     function handleClick(e) {
         e.preventDefault()
