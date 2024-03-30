@@ -12,7 +12,8 @@ function SearchBar() {
 
     useEffect(() => {
         dispatch(fetchPosts(searchTerm))
-    })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     function handleClick(e) {
         e.preventDefault()
