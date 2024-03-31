@@ -9,9 +9,8 @@ function Card({
     isVideo,
     media,
     comments,
-    thumbnail,
     preview,
-    postHint}) {
+    subreddit}) {
 
     function formatNumber(num) {
         if (num >= 1000) {
@@ -35,7 +34,7 @@ function Card({
         if (isVideo) {
             return loadVideo(media)
         } else if (preview) {
-            console.log(`PREVIEW ${author}, ${preview.images[0].source.url}`)
+            //console.log(`PREVIEW ${author}, ${preview.images[0].source.url}`)
             return <img alt="content" className="thumbnail" src={preview.images[0].source.url} />
         } else {
             return null
@@ -45,7 +44,8 @@ function Card({
     return (
         <div data-testid='card' className="card">
             <div data-testid='votes' className="votes">
-                <p><img alt="heart" className="heart" src="/icons8-heart-90.png"/>{formatNumber(votes)}</p>
+                <p className="number-votes"><img alt="heart" className="heart" src="/icons8-heart-90.png"/>{formatNumber(votes)}</p>
+                <p className="subreddit">r/{subreddit}</p>
             </div>
             <div className="body-content">
                 <h1 className="title">{title}</h1>

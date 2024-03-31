@@ -6,7 +6,8 @@
 }
 
 html {
-    background-color: gray;
+    background: linear-gradient(to bottom right, #ff0000 10%, orange);
+    background-attachment: fixed;
 }
 
 .App {
@@ -24,13 +25,19 @@ html {
 }
 
 .header {
+    color: black;
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     height: 60px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
     border-bottom: solid black;
+}
+
+.logo {
+    position: relative;
+    top: 3.5px;
 }
 
 .header h1 {
@@ -42,9 +49,11 @@ html {
 }
 
 .searchbar #search-term {
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     border: solid black;
+    font-size: 15px;
+    width: 200px;
 }
 
 .searchbar .search-icon {
@@ -76,13 +85,13 @@ ul {
 
 li {
     background-color: white;
-    margin: 10px;
     padding: 10px;
     width: 750px;
     display: flex;
     flex-flow: row;
     border: solid black 4px;
-
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 li .votes {
@@ -95,6 +104,19 @@ li .votes {
     position: relative;
     top: 3px;
     margin-right: 2px;
+}
+
+.number-votes {
+    font-weight: 400;
+}
+
+.subreddit {
+    font-weight: 400;
+    font-size: 15px;
+    position: relative;
+    left: 5px;
+    margin-top: 3px;
+    color: gray;
 }
 
 li h1 {
@@ -117,6 +139,8 @@ li h1 {
     align-items: center;
     width: 80%px;
     margin: 10px;
+    border-bottom: solid black;
+    padding-bottom: 15px;
 }
 
 .title {
@@ -128,7 +152,6 @@ li h1 {
     font-size: 20px;
     overflow: scroll;
     max-width: 90%;
-    margin-top: 10px;
 }
 
 .card .card-bottom {
@@ -138,6 +161,7 @@ li h1 {
     width: 100%;
     justify-content: space-evenly;
     float: left;
+    font-weight: 500;
 }
 
 .card .comments {
@@ -146,8 +170,8 @@ li h1 {
 
 .card .comments img {
     position: relative;
-    left: 4px;
-    top: 2px;
+    left: 5px;
+    top: 4px;
 }
 
 .card .comments:hover {

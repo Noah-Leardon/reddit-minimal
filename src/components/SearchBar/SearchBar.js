@@ -38,9 +38,8 @@ function SearchBar() {
                         isVideo={post.data.is_video} 
                         media={post.data.media} 
                         comments={post.data.num_comments} 
-                        thumbnail={post.data.thumbnail}
                         preview={post.data.preview}
-                        postHint={post.data.post_hint}
+                        subreddit={post.data.subreddit}
                         /></li>
                 })}
             </ul> : <h1 className="loading">Loading...</h1>}
