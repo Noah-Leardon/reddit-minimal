@@ -42,7 +42,7 @@ function SearchBar() {
                         subreddit={post.data.subreddit}
                         /></li>
                 })}
-            </ul> : <h1 className="loading">Loading...</h1>}
+            </ul> : <img className="loading" alt="loading" src="/ZKZg.gif" />}
         </div>
     )
 }
