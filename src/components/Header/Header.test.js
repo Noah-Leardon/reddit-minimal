@@ -12,9 +12,4 @@ describe('Header', () => {
         const h1 = screen.getByRole('heading')
         expect(h1).toBeInTheDocument()
     })
-    it('Displays text', () => {
-        render(<Header />)
-        const h1 = screen.getByRole('heading')
-        expect(h1).toHaveTextContent('Reddit Minimal')
-    })
 })

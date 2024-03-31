@@ -1,4 +1,5 @@
 import React from "react";
+import { chooseDisplayMedia, formatNumber } from '../../helperfunctions/helperfunctions'
 
 function Card({ 
     title,
@@ -12,35 +13,6 @@ function Card({
     preview,
     subreddit}) {
 
-    function formatNumber(num) {
-        if (num >= 1000) {
-            return (num / 1000).toFixed(1) + 'k';
-        } else {
-            return num;
-        }
-    }
-
-    function loadVideo(media) {
-        let urlToUse;
-        if (media && media.reddit_video) {
-            urlToUse = media.reddit_video.fallback_url;
-            return <video className="post-video" controls src={urlToUse}></video>
-        } else {
-            return;
-        }
-    }
-
-    function chooseDisplayMedia() {
-        if (isVideo) {
-            return loadVideo(media)
-        } else if (preview) {
-            //console.log(`PREVIEW ${author}, ${preview.images[0].source.url}`)
-            return <img alt="content" className="thumbnail" src={preview.images[0].source.url} />
-        } else {
-            return null
-        }
-    }
-
     return (
         <div data-testid='card' className="card">
             <div data-testid='votes' className="votes">
@@ -50,7 +22,7 @@ function Card({
             <div className="body-content">
                 <h1 className="title">{title}</h1>
                 <div data-testid='content' className="content">
-                    {chooseDisplayMedia()}
+                    {chooseDisplayMedia(isVideo, media, preview)}
                     <p className="selftext">{body}</p>
                 </div>
                 <div data-testid='card-bottom' className="card-bottom">
