@@ -39,5 +39,4 @@ function Card({
 }
 
 export default Card
-// https://preview.redd.it/ey5rbxyav8lb1.png?auto=webp&amp;s=2bc7e6bde62a845daf87af8ea5f588211cf28eaf
 // TO-DO: write tests for new functions, add css, implement comment functionality, seperate util functions, clean up files
