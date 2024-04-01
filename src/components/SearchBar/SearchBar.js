@@ -8,14 +8,13 @@ function SearchBar() {
     const dispatch = useDispatch()
     const posts = useSelector((state) => state.post.posts)
     const isLoading = useSelector((state) => state.post.isLoading)
-    //const callCount = useSelector((state) => state.callCount)
 
     useEffect(() => {
         dispatch(fetchPosts(searchTerm))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    function handleClick(e) {
+    function handleSubmit(e) {
         e.preventDefault()
         dispatch(fetchPosts(searchTerm))
         setSearchTerm('')
@@ -23,7 +22,7 @@ function SearchBar() {
 
     return (
         <div data-testid='searchbar' className="body">
-            <form onSubmit={(e) => handleClick(e)} className="searchbar">
+            <form data-testid="form" onSubmit={(e) => handleSubmit(e)} className="searchbar">
                 <input id="search-term" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
                 <button type="submit" id="search-button"><img alt="Search Icon" className="search-icon" src="/search.png"/></button>
             </form>
@@ -42,7 +41,7 @@ function SearchBar() {
                         subreddit={post.data.subreddit}
                         /></li>
                 })}
-            </ul> : <img className="loading" alt="loading" src="/ZKZg.gif" />}
+            </ul> : <img data-testid="loading-img" className="loading" alt="loading" src="/ZKZg.gif" />}
         </div>
     )
 }

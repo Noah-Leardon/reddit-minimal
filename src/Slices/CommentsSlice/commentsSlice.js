@@ -4,9 +4,6 @@ const options = {
     name: 'comments',
     initialState: [],
     reducers: {
-        add: (state, action) => {
-            state.push(action.payload)
-        },
         clear: (state, action) => {
             return []
         }

@@ -3,11 +3,6 @@ import commentsReducer from "./commentsSlice"
 
 describe('Comments Slice', () => {
     describe('Action creators', () => {
-        it('Returns the proper add action object', () => {
-            const expectedValue = { type: 'comments/add', payload: undefined }
-            const actualValue = add()
-            expect(actualValue).toEqual(expectedValue)
-        })
         it('Returns the proper remove action object', () => {
             const expectedValue = { type: 'comments/clear', payload: undefined }
             const actualValue = clear()
@@ -24,11 +19,6 @@ describe('Comments Slice', () => {
             const state = []
             const nextState = commentsReducer(state, { type: 'UNKNOWN', payload: undefined })
             expect(nextState).toEqual(state)
-        })
-        it('Adds to the state', () => {
-            const state = []
-            const nextState = commentsReducer(state, { type: 'comments/add', payload: 1 })
-            expect(nextState).toEqual([1])
         })
         it('Clears the state array', () => {
             const state = [{ id: 1 }, { id: 2}, {id: 3}]

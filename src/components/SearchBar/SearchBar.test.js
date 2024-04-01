@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, getAllByRole } from "@testing-library/react";
 import SearchBar from "./SearchBar";
 import React from "react";
 import { Provider } from "react-redux";
@@ -27,4 +27,34 @@ describe('SearchBar Component', () => {
         // Check if input value is updated
         expect(input.value).toBe('test');
       });
+      it('Handles click events', () => {
+        render(
+            <Provider store={store}>
+                <SearchBar />
+            </Provider>
+        )
+        const searchTerm = screen.getByPlaceholderText('Search')
+        const form = screen.getByTestId('form')
+        fireEvent.submit(form)
+
+        expect(searchTerm.textContent).toEqual("")
+      })
+      it('Displays a loading img while loading', () => {
+        render(
+            <Provider store={store}>
+                <SearchBar />
+            </Provider>
+        )
+        const img = screen.getByAltText('loading')
+        expect(img).toBeInTheDocument()
+      })
+      it('Displays fetched posts', async () => {
+        render(
+            <Provider store={store}>
+                <SearchBar />
+            </Provider>
+        )
+        const post = await screen.findAllByRole('list')
+        expect(post[0]).toBeInTheDocument
+      })
 })
