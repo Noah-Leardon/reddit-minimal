@@ -10,13 +10,13 @@ function SearchBar() {
     const isLoading = useSelector((state) => state.post.isLoading)
 
     useEffect(() => {
-        dispatch(fetchPosts(searchTerm))
+        dispatch(fetchPosts({ type: 'post', searchTerm: searchTerm, postId: null}))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(fetchPosts(searchTerm))
+        dispatch(fetchPosts({ type: 'post', searchTerm: searchTerm, postId: null}))
         setSearchTerm('')
     }
 
@@ -28,7 +28,7 @@ function SearchBar() {
             </form>
             {!isLoading ? <ul className="posts">
                 {posts.map((post) => {
-                    return <li key={post.data.id}><Card 
+                    return <li className="post" key={post.data.id}><Card 
                         title={post.data.title} 
                         votes={post.data.score} 
                         author={post.data.author} 
@@ -36,9 +36,10 @@ function SearchBar() {
                         body={post.data.selftext} 
                         isVideo={post.data.is_video} 
                         media={post.data.media} 
-                        comments={post.data.num_comments} 
+                        numOfComments={post.data.num_comments} 
                         preview={post.data.preview}
                         subreddit={post.data.subreddit}
+                        postId={post.data.id}
                         /></li>
                 })}
             </ul> : <img data-testid="loading-img" className="loading" alt="loading" src="/ZKZg.gif" />}

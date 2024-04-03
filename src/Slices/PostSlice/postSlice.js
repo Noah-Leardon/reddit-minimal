@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchData } from "../../api/api";
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts',
-    async (searchTerm, thunkAPI) => {
+    async (apiData, thunkAPI) => {
         try {
-            const response = await fetchData(searchTerm);
+            const response = await fetchData(apiData.searchTerm, apiData.type, apiData.postId);
             const data = await response.json(); // Parse response data as JSON
             return data;
         } catch (error) {

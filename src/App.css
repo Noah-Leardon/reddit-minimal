@@ -91,7 +91,7 @@ ul {
     list-style: none;
 }
 
-li {
+.posts .post {
     background-color: white;
     padding: 10px;
     width: 750px;
@@ -102,7 +102,7 @@ li {
     margin-bottom: 20px;
 }
 
-li .votes {
+.post .votes {
     font-weight: 600;
     font-size: larger;
 }
@@ -127,7 +127,7 @@ li .votes {
     color: gray;
 }
 
-li h1 {
+.posts li h1 {
     padding: 5px;
 }
 
@@ -145,7 +145,7 @@ li h1 {
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    width: 80%px;
+    width: 90%;
     margin: 10px;
     border-bottom: solid black;
     padding-bottom: 15px;
@@ -160,10 +160,24 @@ li h1 {
     margin-top: 100px;
 }
 
+.body-content {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.body-content h1 {
+    float: left;
+    text-align: left;
+}
+
+
+
 .selftext{
     word-spacing: 4px;
     font-size: 20px;
-    overflow: scroll;
     max-width: 90%;
 }
 
@@ -175,20 +189,61 @@ li h1 {
     justify-content: space-evenly;
     float: left;
     font-weight: 500;
+    padding-bottom: 8px;
 }
 
-.card .comments {
+.card .comments-link {
     display: flex;
 }
 
-.card .comments img {
+.card .comments-link img {
     position: relative;
     left: 5px;
     top: 4px;
 }
 
-.card .comments:hover {
+.card .comments-link:hover {
     cursor: pointer;
     transition: all ease 0.5s;
     text-decoration: underline;
+}
+
+.comment-section {
+    width: 90%;
+    display: flex;
+    flex-flow: column wrap;
+    border-top: black solid;
+    padding-top: 15px;
+}
+
+.comment-section .comments ul {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.comment-section .comments li {
+    padding: 8px;
+    border: solid 2px black;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.comments ul li p {
+    width: 100%;
+}
+
+.comments .comment-author {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.comments .comment-votes {
+    font-weight: 500;
+}
+
+.comments img {
+    position: relative;
+    top: 3px;
+    width: 18px;
+    height: 18px;
 }
