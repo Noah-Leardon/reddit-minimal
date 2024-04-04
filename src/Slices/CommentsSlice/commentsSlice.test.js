@@ -1,4 +1,4 @@
-import { add, clear } from "./commentsSlice"
+import { clear, fetchComments } from "./commentsSlice"
 import commentsReducer from "./commentsSlice"
 
 describe('Comments Slice', () => {
@@ -26,4 +26,46 @@ describe('Comments Slice', () => {
             expect(nextState).toEqual([])
         })
     })
+    describe('Comment slice extraReducers', () => {
+        let initialState;
+      
+        beforeEach(() => {
+          initialState = {
+            comments: [],
+            postId: undefined,
+            isLoading: false,
+            hasError: false
+          };
+        });
+      
+        it('should handle fetchComments.pending', () => {
+          const nextState = commentsReducer(initialState, fetchComments.pending());
+          expect(nextState.isLoading).toEqual(true);
+          expect(nextState.hasError).toEqual(false);
+        });
+      
+        it('should handle fetchComments.fulfilled', () => {
+            const mockPayload = ['test', { data: { children: ['comment1', 'comment2'] } }];
+            const mockMeta = { arg: { postId: 'test' } };
+            const mockAction = {
+                type: fetchComments.fulfilled.type,
+                payload: mockPayload,
+                meta: mockMeta
+            };
+    
+            const nextState = commentsReducer(initialState, mockAction);
+        
+            // Assert that the reducer updates the state correctly
+            expect(nextState.isLoading).toEqual(false);
+            expect(nextState.hasError).toEqual(false);
+            expect(nextState.comments).toEqual(['comment1', 'comment2']);
+            expect(nextState.postId).toEqual('test');
+        });
+      
+        it('should handle fetchComments.rejected', () => {
+          const nextState = commentsReducer(initialState, fetchComments.rejected());
+          expect(nextState.isLoading).toEqual(false);
+          expect(nextState.hasError).toEqual(true);
+        });
+      });
 })

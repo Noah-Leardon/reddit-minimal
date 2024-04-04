@@ -25,7 +25,7 @@ export async function fetchData(searchPhrase, type, sort, postId, subreddit) {
       break;
     case 'subreddit':
       try {
-        const response = await fetch(`https://www.reddit.com/r/${subreddit}/new.json`);
+        const response = await fetch(`https://www.reddit.com/r/${subreddit}/.json`);
         if (!response.ok) {
           throw new Error('Failed to fetch Reddit subreddit data');
         }

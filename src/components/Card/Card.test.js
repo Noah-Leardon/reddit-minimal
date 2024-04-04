@@ -33,7 +33,7 @@ describe('Card component', () => {
                 )
             const link = screen.getByTestId('comments-link')
             fireEvent.click(link)
-            
+            expect(link).toBeInTheDocument()
         })
     })
 })

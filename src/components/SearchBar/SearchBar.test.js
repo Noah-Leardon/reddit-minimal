@@ -57,4 +57,17 @@ describe('SearchBar Component', () => {
         const post = await screen.findAllByRole('list')
         expect(post[0]).toBeInTheDocument
       })
+      it('Handles select events', () => {
+        render(
+            <Provider store={store}>
+                <SearchBar />
+            </Provider>
+        )
+        const select = screen.getByRole('combobox')
+
+        select.value = 'hot';
+
+        fireEvent.change(select)
+        expect(select.value).toEqual('hot')
+      })
 })
