@@ -1,5 +1,5 @@
 
-export async function fetchData(searchPhrase, type, postId, subreddit) {
+export async function fetchData(searchPhrase, type, sort, postId, subreddit) {
   switch (type) {
     case 'comment':
       try {
@@ -14,7 +14,7 @@ export async function fetchData(searchPhrase, type, postId, subreddit) {
       break;
     case 'post':
       try {
-        const response = await fetch(`https://www.reddit.com/search.json?q=${searchPhrase}&raw_json=1`);
+        const response = await fetch(`https://www.reddit.com/search.json?q=${searchPhrase}&sort=${sort}&raw_json=1`);
         if (!response.ok) {
           throw new Error('Failed to fetch Reddit post data');
         }
@@ -25,7 +25,7 @@ export async function fetchData(searchPhrase, type, postId, subreddit) {
       break;
     case 'subreddit':
       try {
-        const response = await fetch(`https://www.reddit.com/r/${subreddit}/.json`);
+        const response = await fetch(`https://www.reddit.com/r/${subreddit}/new.json`);
         if (!response.ok) {
           throw new Error('Failed to fetch Reddit subreddit data');
         }

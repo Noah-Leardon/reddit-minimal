@@ -10,13 +10,14 @@ function SearchBar() {
     const isLoading = useSelector((state) => state.post.isLoading)
 
     useEffect(() => {
-        dispatch(fetchPosts({ type: 'post', searchTerm: searchTerm, postId: null}))
+        //{ type: 'post', sort: 'hot', searchTerm: searchTerm, postId: null}
+        dispatch(fetchPosts({ type: 'post', sort: 'hot', searchTerm: searchTerm, postId: null}))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(fetchPosts({ type: 'post', searchTerm: searchTerm, postId: null}))
+        dispatch(fetchPosts({ type: 'post', sort: 'hot', searchTerm: searchTerm, postId: null}))
         setSearchTerm('')
     }
 
