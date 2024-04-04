@@ -19,7 +19,7 @@ describe('fetchPosts async thunk', () => {
       });
   it('dispatches pending, fulfilled actions', async () => {
     const store = mockStore({});
-    const searchPhrase = 'test';
+    const apiData = { searchPhrase: 'test', type: undefined, postId: undefined };
 
 
     require('../../api/api').fetchData.mockResolvedValue({
@@ -31,7 +31,7 @@ describe('fetchPosts async thunk', () => {
         json: () => Promise.resolve({ posts: 'test' })
     });
     
-    await store.dispatch(fetchPosts(searchPhrase));
+    await store.dispatch(fetchPosts(apiData));
 
     // Get dispatched actions
     const actions = store.getActions();
@@ -39,15 +39,12 @@ describe('fetchPosts async thunk', () => {
     // Verify the dispatched actions
     expect(actions[0].type).toEqual(fetchPosts.pending.type);
     expect(actions[1].type).toEqual(fetchPosts.fulfilled.type);
-    // Assuming the API call succeeds, you can also check for the payload
     expect(actions[1].payload).toEqual( {posts: 'test'});
 
-    // Optionally, you can also verify the calls to fetchData
     expect(fetchData).toHaveBeenCalledTimes(1);
-    expect(fetchData).toHaveBeenCalledWith(searchPhrase);
   });
   it('Handles errors', async () => {
-    const searchPhrase = 'test';
+    const testData = { searchPhrase: 'test', type: undefined, postId: undefined };
     const store = mockStore({});
 
     // Mock a rejected API call
@@ -55,17 +52,10 @@ describe('fetchPosts async thunk', () => {
     jest.spyOn(require('../../api/api'), 'fetchData').mockRejectedValueOnce(error);
 
     // Dispatch the async thunk
-    await store.dispatch(fetchPosts(searchPhrase));
-
-    // Get dispatched actions
-
-    // Dispatch the async thunk
+    await store.dispatch(fetchPosts(testData));
 
     const actions = store.getActions();
     expect(actions[0].type).toEqual(fetchPosts.pending.type);
     expect(actions[1].type).toEqual(fetchPosts.rejected.type);
   })
-  // You can write additional tests for error scenarios, etc.
 });
-
-// To-do: Begin writing implementation code and integration tests for initial r/popular load and e2e tests

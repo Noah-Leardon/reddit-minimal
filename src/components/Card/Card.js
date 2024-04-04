@@ -20,7 +20,7 @@ function Card({
     const dispatch = useDispatch()
     const commentPostId = useSelector((state) => state.comments.postId)
     const comments = useSelector((state) => state.comments.comments)
-
+    
     function handleClick() {
         dispatch(fetchComments({ searchTerm: undefined, type: 'comment', postId: postId}))
     }
@@ -41,12 +41,12 @@ function Card({
                     <p>By: {author}</p>
                     <p>{new Date(time * 1000).toLocaleDateString()}</p>
                     <div className="comments-link">
-                        <p onClick={handleClick}>{formatNumber(numOfComments)}</p>
+                        <p data-testid="comments-link" onClick={handleClick}>{formatNumber(numOfComments)}</p>
                         <img alt="comment bubble" className="comment-bubble" src="/img.icons8.com.png"/>
                     </div>
                 </div>
-                <div className="comment-section">
-                {postId === commentPostId ? <ul className="comments">
+                <div data-testid="comment-section" className="comment-section">
+                {postId === commentPostId ? <ul data-testid="comments" className="comments">
                     {comments.map((comment) => {
                         return <li key={comment.data.id}>
                         <Comment 
@@ -63,4 +63,3 @@ function Card({
 }
 
 export default Card
-// TO-DO: write tests for new functions, add css, implement comment functionality, seperate util functions, clean up files
