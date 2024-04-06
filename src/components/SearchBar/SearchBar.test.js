@@ -70,4 +70,18 @@ describe('SearchBar Component', () => {
         fireEvent.change(select)
         expect(select.value).toEqual('hot')
       })
+      it('Handles subreddit clicks', async () => {
+        render(
+            <Provider store={store}>
+                <SearchBar />
+            </Provider>
+        )
+        const post = await screen.findAllByTestId('card')
+        const list = screen.getAllByRole('listitem')
+        for (let item of list) {
+            fireEvent.click(item)
+        }
+        const newPosts = await screen.findAllByTestId('card')
+        expect(newPosts).toBeTruthy()
+      })
 })

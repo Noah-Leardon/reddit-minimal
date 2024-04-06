@@ -18,12 +18,23 @@ function SearchBar() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(fetchPosts({ type: 'post', sort: sort, searchTerm: searchTerm, postId: null}))
+        dispatch(fetchPosts({ type: 'post', sort: sort, searchTerm: searchTerm, postId: null, subreddit: null }))
         setSearchTerm('')
+    }
+
+    function handleClick(subreddit) {
+        dispatch(fetchPosts({ type: 'subreddit', sort: null, searchTerm: null, postId: null, subreddit: subreddit}))
     }
 
     return (
         <div data-testid='searchbar' className="body">
+            <ol className="subreddits">
+                    <li onClick={() => handleClick('funny')} value="funny">r/funny</li>
+                    <li onClick={() => handleClick('AskReddit')} value="AskReddit">r/AskReddit</li>
+                    <li onClick={() => handleClick('gaming')} value="gaming">r/gaming</li>
+                    <li onClick={() => handleClick('worldnews')} value="worldnews">r/worldnews</li>
+                    <li onClick={() => handleClick('todayilearned')} value="todayilearned">r/todayilearned</li>
+                </ol>
             <form data-testid="form" onSubmit={(e) => handleSubmit(e)} className="searchbar">
                 <div className="search">
                     <input id="search-term" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>

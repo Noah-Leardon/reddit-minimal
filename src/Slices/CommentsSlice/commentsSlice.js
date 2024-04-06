@@ -33,7 +33,6 @@ const options = {
             state.hasError = false
         })
         .addCase(fetchComments.fulfilled, (state, action) => {
-            console.log(action.payload)
             state.isLoading = false
             state.hasError = false
             state.comments = action.payload[1].data.children

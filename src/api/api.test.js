@@ -121,7 +121,7 @@ describe('fetchData function', () => {
       const result = await fetchData(data.searchPhrase, data.type, data.sort, data.postId, data.subreddit);
   
       // Verify that fetch was called with the correct URL
-      expect(fetch).toHaveBeenCalledWith(`https://www.reddit.com/r/${data.subreddit}/.json`);
+      expect(fetch).toHaveBeenCalledWith(`https://www.reddit.com/r/${data.subreddit}.json?raw_json=1`);
   
       // Verify that the function returns the expected data
       expect(await result.json()).toEqual(responseData);

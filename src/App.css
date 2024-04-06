@@ -1,4 +1,6 @@
 
+
+
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -33,6 +35,8 @@ html {
     height: 60px;
     background-color: rgba(255, 255, 255, 1);
     border-bottom: solid black;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -44,6 +48,32 @@ html {
     font-weight: 400;
 }
 
+.subreddits {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 600px;
+    list-style-type: none;
+    border-radius: 10px;
+
+    margin: 10px;
+    padding: 7px;
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+}
+
+.subreddits li {
+    background-color: white;
+    border: solid black 2px;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    width: fit-content
+}
+
+.subreddits li:hover {
+    cursor: pointer;
+}
+
 .reddit {
     color: transparent;
     background: linear-gradient(to bottom right, #ff0000 10%, orange);
@@ -53,7 +83,7 @@ html {
 }
 
 .searchbar {
-    margin: 20px;
+    margin-bottom: 20px;
     display: flex;
 }
 
@@ -228,12 +258,17 @@ ul {
     padding-top: 15px;
 }
 
-.comment-section .comments ul {
+.comment-section .comments, ul {
+    width: 100%;
     display: flex;
     flex-flow: column wrap;
+    word-wrap: break-word;
+    align-items: center;
+    justify-content: center;
 }
 
 .comment-section .comments li {
+    width: 80%;
     padding: 8px;
     border: solid 2px black;
     margin-bottom: 10px;
@@ -242,6 +277,7 @@ ul {
 
 .comments ul li p {
     width: 100%;
+    word-wrap: break-word;
 }
 
 .comments .comment-author {
@@ -258,4 +294,120 @@ ul {
     top: 3px;
     width: 18px;
     height: 18px;
+}
+
+@media screen and (max-width: 806px) and (min-width: 636px) {
+    .card .thumbnail, .post-video {
+        max-width: 450px;
+        max-height: 450px;
+    }
+    .posts li.post {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 636px) and (min-width: 590px) {
+    .card .thumbnail, .post-video {
+        max-width: 350px;
+        max-height: 350px;
+    }
+    .posts li.post {
+        width: 450px;
+    }
+    .subreddits {
+        width: 550px;
+        overflow: scroll;
+    }
+}
+
+@media screen and (max-width: 590px) and (min-width: 513px) {
+    .card .thumbnail, .post-video {
+        max-width: 350px;
+        max-height: 350px;
+    }
+    .posts li.post {
+        width: 450px;
+    }
+    .subreddits {
+        width: 300px;
+        overflow: scroll;
+        display: flex;
+        justify-content: left;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    .card .thumbnail, .post-video {
+        max-width: 300px;
+        max-height: 300px;
+    }
+    .posts li.post {
+        width: 400px;
+    }
+    .subreddits {
+        width: 300px;
+        overflow: scroll;
+        display: flex;
+        justify-content: left;
+    }
+    .title {
+        font-size: 25px;
+    }
+    .card-bottom {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .card .thumbnail, .post-video {
+        max-width: 275px;
+        max-height: 275px;
+    }
+    .number-votes {
+        font-size: 15px;
+    }
+    .heart {
+        width: 16px!important;
+    }
+    .posts li.post {
+        width: 350px;
+    }
+    .subreddits {
+        width: 300px;
+        overflow: scroll;
+        display: flex;
+        justify-content: left;
+    }
+    .subreddit {
+        font-size: 13px;
+    }
+    .comment-bubble {
+        width: 14px!important;
+        position: relative!important;
+        top: 2px!important;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .card .thumbnail, .post-video {
+        max-width: 250px;
+        max-height: 250px;
+    }
+    .posts li.post {
+        width: 300px;
+    }
+    .subreddits {
+        width: 300px;
+        overflow: scroll;
+        display: flex;
+        justify-content: left;
+    }
+    .subreddit {
+        font-size: 12px;
+    }
+    .comment-bubble {
+        width: 12px!important;
+        position: relative!important;
+        top: 2px!important;
+    }
 }

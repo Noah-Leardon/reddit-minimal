@@ -4,7 +4,7 @@ import { fetchData } from "../../api/api";
 export const fetchPosts = createAsyncThunk('posts/fetchPosts',
     async (apiData, thunkAPI) => {
         try {
-            const response = await fetchData(apiData.searchTerm, apiData.type, apiData.sort, apiData.postId);
+            const response = await fetchData(apiData.searchTerm, apiData.type, apiData.sort, apiData.postId, apiData.subreddit);
             const data = await response.json(); // Parse response data as JSON
             return data;
         } catch (error) {

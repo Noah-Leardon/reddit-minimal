@@ -24,7 +24,7 @@ describe('App', () => {
         expect(searchBar).toBeInTheDocument()
     })
      describe('End to End Tests', () => {
-        it.skip('Fetches posts', async () => {
+        it('Fetches posts', async () => {
             const input= screen.getByPlaceholderText('Search')
             fireEvent.change(input, { target: { value: 'test' } });
             expect(input.value).toEqual('test')
