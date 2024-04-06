@@ -84,4 +84,6 @@ describe('SearchBar Component', () => {
         const newPosts = await screen.findAllByTestId('card')
         expect(newPosts).toBeTruthy()
       })
+      it('displays error message when there is an error', async () => {
+      });
 })

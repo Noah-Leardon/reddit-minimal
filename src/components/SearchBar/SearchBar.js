@@ -9,6 +9,8 @@ function SearchBar() {
     const posts = useSelector((state) => state.post.posts)
     const isLoading = useSelector((state) => state.post.isLoading)
     const [sort, setSort] = useState('hot')
+    const hasError = useSelector((state) => state.post.hasError)
+    
 
     useEffect(() => {
         //{ type: 'post', sort: 'hot', searchTerm: searchTerm, postId: null}
@@ -48,7 +50,7 @@ function SearchBar() {
                     </select>
                 </div>
             </form>
-            {!isLoading ? <ul className="posts">
+            {hasError ? <h1>Error! Reload</h1> : !isLoading ? <ul className="posts">
                 {posts.map((post) => {
                     return <li className="post" key={post.data.id}><Card 
                         title={post.data.title} 
