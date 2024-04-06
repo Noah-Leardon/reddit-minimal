@@ -50,15 +50,13 @@ html {
 
 .subreddits {
     background-color: rgba(255, 255, 255, 0.3);
-    width: 600px;
+    width: 575px;
     list-style-type: none;
     border-radius: 10px;
-
     margin: 10px;
     padding: 7px;
     display: flex;
     justify-content: center;
-    overflow: scroll;
 }
 
 .subreddits li {
@@ -85,6 +83,8 @@ html {
 .searchbar {
     margin-bottom: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .selectors select {
@@ -315,8 +315,9 @@ ul {
         width: 450px;
     }
     .subreddits {
-        width: 550px;
+        width: 500px;
         overflow: scroll;
+        justify-content: left;
     }
 }
 
