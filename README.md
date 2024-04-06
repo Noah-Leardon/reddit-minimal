@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Reddit Minimal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Goal
 
-## Available Scripts
+The goal of the project is to provide a minimalized Reddit experience. This slimmer design will allow for a more focused, less cluttered experience that will feel snappier and easier to follow. 
 
-In the project directory, you can run:
+## Wireframes
 
-### `npm start`
+Wireframes were made using both Figma and pencil sketches.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- HTML/CSS
+- JavaScript
+- Git/GitHub
+- React
+- Redux/Toolkit
+- Jest/RTL
+- Reddit JSON API
 
-### `npm test`
+## Practices
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- TDD with 100% coverage
+- Responsive web design
+- CI/CD
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Search:** Users are able to search reddit posts using the search bar.
+2. **Sort** Users are able to sort their search by 3 predefined choices.
+3. **Subreddit:** Users are able to browse subreddit posts
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Experience Gained
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project served as a cap stone project for my Front-End journey. It stretched me, but I gained a lot of knowledge from this project. This was my first project built primarily using a TDD approach. It was strange and hard to get used to. As time went on I felt more confident writing, organizing, and diversifying the tests. This lead to a unique confidence in the code integrity that I hadn't previouslt known. Besides testing, this project also greatly increased my confidence with React, Redux, and CSS. I had to spend a lot of time with all three of them and learned many quirks about them along the way. Overall this project was challenging, yet rewarding and it made me confident in the areas I previously felt weak.
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The deployed site is viewable at this [link](https://reddit-limited.netlify.app)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Feel free to make a local copy to make changes, run tests, etc.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Support
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For support or inquiries, please contact [nojo2552@icloud.com](mailto:nojo2552@icloud.com).
